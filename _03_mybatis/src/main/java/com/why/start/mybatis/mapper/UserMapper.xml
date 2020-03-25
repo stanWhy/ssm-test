@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace-->
+<mapper namespace="com.why.start.mybatis.mapper.UserMapper">
+    <sql id="key">
+        id,`name`,pwd
+    </sql>
+
+    <select id="getUserList" resultType="User">
+    select * from user
+  </select>
+
+    <select id="getUserByLimit" parameterType="map" resultType="user">
+        select * from user limit #{startIndex},#{size}
+    </select>
+</mapper>

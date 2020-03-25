@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace 绑定一个对应的mapper接口-->
+<mapper namespace="com.why.start.mybatis.mapper.UserMapper">
+
+    <sql id="key">
+        id,`name`,pwd
+    </sql>
+
+    <insert id="insertUser" parameterType="User">
+        insert into user(<include refid="key"/>)
+        values(#{id},#{name},#{pwd})
+    </insert>
+
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update user set `name` = #{name},pwd = #{pwd}
+        where id = #{id}
+    </update>
+
+    <select id="selectAll" resultType="User">
+        select <include refid="key"/>
+        from user;
+    </select>
+
+    <select id="selectUserById" resultType="User">
+        select <include refid="key"/>
+        from user
+        where id = #{id}
+    </select>
+</mapper>

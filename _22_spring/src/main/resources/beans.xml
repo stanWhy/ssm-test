@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  使用spring来创建对象，在spring中这些都称之为bean  -->
+    <bean id="hello" class="com.why.start.spring.pojo.Hello">
+        <property name="str" value="Spring"/>
+    </bean>
+
+    <bean id="mysqlImpl" class="com.why.start.spring.dao.impl.UserDaoByMysqlImpl"/>
+    <bean id="oracleImpl" class="com.why.start.spring.dao.impl.UserDaoByOracleImpl"/>
+
+    <bean id="userServiceImpl" class="com.why.start.spring.service.impl.UserServiceImpl">
+        <property name="userDao" ref="mysqlImpl"/>
+    </bean>
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.why.start.spring.pojo.Address">
+        <property name="address" value="北京市"/>
+    </bean>
+    <bean id="student" class="com.why.start.spring.pojo.Student">
+        <property name="name" value="student-value"/>
+        <property name="address" ref="address"/>
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <property name="hobbys">
+            <list>
+                <value>hobby-a</value>
+                <value>hobby-b</value>
+                <value>hobby-c</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="身份证" value="123456"></entry>
+                <entry key="学生证" value="789632"></entry>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>coc</value>
+            </set>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="url" >http://w.a.com</prop>
+            </props>
+        </property>
+        <property name="wife">
+            <null></null>
+        </property>
+    </bean>
+</beans>

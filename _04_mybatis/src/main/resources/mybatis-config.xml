@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!--    1.引入外配置-->
+    <properties resource="database.properties"/>
+
+<!--    2.配置setting，输出日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+<!--    3.给实体类设置别名-->
+    <!--<typeAliases>
+        <package name="com.why.start.mybatis.pojo"/>
+    </typeAliases>-->
+<!--    4.链接数据库-->
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver"     value="${driver}"/>
+                <property name="url"        value="${url}"/>
+                <property name="username"   value="${username}"/>
+                <property name="password"   value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--    5.绑定接口-->
+    <mappers>
+        <mapper class="com.why.start.mybatis.mapper.UserMapper"/>
+    </mappers>
+</configuration>

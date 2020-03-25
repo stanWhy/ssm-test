@@ -1,0 +1,1 @@
+#使用spring来创建对象，在spring中这些都称之为bean
