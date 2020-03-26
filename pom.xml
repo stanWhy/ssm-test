@@ -22,6 +22,12 @@
         <module>_26_spring</module>
         <module>_27_spring</module>
         <module>_28_spring</module>
+        <module>_29_spring</module>
+        <module>_30_spring</module>
+        <module>_31_spring</module>
+        <module>_06_mybatis</module>
+        <module>_41_spring-mybatis</module>
+        <module>_42_spring-mybatis</module>
     </modules>
 
     <dependencies>

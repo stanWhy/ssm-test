@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="userService" class="com.why.start.spring.service.UserServiceImpl3"/>
+    <bean id="beforeLog" class="com.why.start.spring.util.BeforeLog"/>
+    <bean id="afterLog" class="com.why.start.spring.util.AfterLog"/>
+
+<!--    方式一：使用原生spring api接口-->
+<!--    注册aop：需要导入aop约束-->
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.why.start.spring.service.UserService.*(..))"/>
+
+        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+</beans>
